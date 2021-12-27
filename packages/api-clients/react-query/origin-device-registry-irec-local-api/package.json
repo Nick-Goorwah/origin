@@ -24,7 +24,7 @@
     },
     "dependencies": {
         "axios": "0.24.0",
-        "react-query": "3.34.0"
+        "react-query": "3.34.6"
     },
     "devDependencies": {
         "@energyweb/origin-device-registry-irec-local-api": "0.5.0",
