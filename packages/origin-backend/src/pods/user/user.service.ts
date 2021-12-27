@@ -7,7 +7,8 @@ import {
     UserPasswordUpdate,
     UserRegistrationData,
     IUserFilter,
-    ILoggedInUser
+    ILoggedInUser,
+    OrganizationStatus
 } from '@energyweb/origin-backend-core';
 import {
     ConflictException,
@@ -25,6 +26,7 @@ import { User } from './user.entity';
 import { EmailConfirmationService } from '../email-confirmation';
 import { UpdateUserProfileDTO } from './dto/update-user-profile.dto';
 import { UpdateUserDTO } from '../admin/dto/update-user.dto';
+import { OrganizationService } from '../organization';
 
 export interface IUserPassword {
     password: string;
@@ -40,7 +42,8 @@ export class UserService {
         @InjectRepository(User)
         private readonly repository: Repository<User>,
         private readonly config: ConfigService,
-        private readonly emailConfirmationService: EmailConfirmationService
+        private readonly emailConfirmationService: EmailConfirmationService,
+        private readonly organizationService: OrganizationService
     ) {}
 
     public async getAll(options?: FindManyOptions<User>) {
@@ -133,7 +136,13 @@ export class UserService {
     }
 
     async addToOrganization(userId: number, organizationId: number) {
-        await this.repository.update(userId, { organization: { id: organizationId } });
+        const organization = await this.organizationService.findOne(organizationId);
+        await this.repository.update(userId, {
+            organization: { id: organizationId },
+            ...(organization.status === OrganizationStatus.Active
+                ? { kycStatus: KYCStatus.Passed }
+                : {})
+        });
     }
 
     async removeFromOrganization(userId: number) {
