@@ -1,0 +1,15 @@
+{
+    "name": "root",
+    "private": true,
+    "devDependencies": {
+        "lerna": "^3.17.0",
+        "typeorm": "^0.2.41"
+    },
+    "dependencies": {
+        "@energyweb/migrations": "^3.1.10"
+    },
+    "scripts": {
+        "typeorm:migrate": "typeorm migration:run --config node_modules/@energyweb/exchange/dist/js/ormconfig.js && typeorm migration:run --config node_modules/@energyweb/origin-backend/dist/js/ormconfig.js",
+        "migrate:demo": "yarn typeorm:migrate && origin-migrations -e .env -c demo-config.json -s seed.sql"
+    }
+}
