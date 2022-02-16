@@ -44,7 +44,7 @@
         "packages/utils/*"
     ],
     "engines": {
-        "node": "14.18.2"
+        "node": "10"
     },
     "dependencies": {
         "@ethersproject/providers": "^5.5.2",
