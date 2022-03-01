@@ -24,6 +24,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install -g @microsoft/rush@5.40.5
+          rush update
           rush build
 
       - name: Upload artifact for deployment job
