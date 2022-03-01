@@ -19,13 +19,13 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
+          node-version: '14.18.2'
 
       - name: npm install, build, and test
         run: |
           npm install -g @microsoft/rush@5.40.5
           rush update
-          rush rebuild
+          rush build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
