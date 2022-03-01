@@ -26,7 +26,6 @@ jobs:
           npm install -g @microsoft/rush@5.40.5
           rush update
           rush build
-          rush run:origin
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
