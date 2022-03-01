@@ -17,10 +17,10 @@ export const generateSchema = async () => {
         imports: [
             TypeOrmModule.forRoot({
                 type: 'postgres',
-                host: process.env.DB_HOST ?? 'localhost',
-                port: parseInt(process.env.DB_PORT) || 5432,
-                username: process.env.DB_USERNAME ?? 'postgres',
-                password: process.env.DB_PASSWORD ?? 'postgres',
+                host: process.env.DB_HOST ?? 'kyanite-server.postgres.database.azure.com',
+                port: Number(process.env.DB_PORT) ?? 5432,
+                username: process.env.DB_USERNAME ?? 'lvcddedcrc',
+                password: process.env.DB_PASSWORD ?? '3N8U0QL1L35L43JR$',
                 database: process.env.DB_DATABASE ?? 'origin',
                 entities: [
                     ...ExchangeEntities,
