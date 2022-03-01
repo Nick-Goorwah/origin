@@ -21,16 +21,12 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: Install rush
-      - run: node common/scripts/install-run-rush.js install
-      - run: rush install --no-link
-
       - name: npm install, build, and test
         run: |
-          rush update
-          rush build
-          rush run:origin
-          
+          npm install
+          npm run build --if-present
+          npm run test --if-present
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
@@ -56,5 +52,5 @@ jobs:
         with:
           app-name: 'kyanite'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4BF6010BE1B84FCF863509D60B23B432 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_224048A4C95D45789F48BBF632AFE36C }}
           package: .
