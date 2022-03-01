@@ -21,11 +21,15 @@ jobs:
         with:
           node-version: '14.x'
 
+      - name: Install rush
+      - run: node common/scripts/install-run-rush.js install
+      - run: rush install --no-link
+
       - name: npm install, build, and test
         run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+          rush update
+          rush build
+          rush run:origin
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
