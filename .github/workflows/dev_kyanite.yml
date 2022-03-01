@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'kyanite'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_533FD82D2C9448F7889775F27E3EC46F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4BF6010BE1B84FCF863509D60B23B432 }}
           package: .
