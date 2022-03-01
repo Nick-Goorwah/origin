@@ -21,12 +21,9 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: Install rush
-      - run: | 
-         npm install -g @microsoft/rush@5.40.5
-
       - name: npm install, build, and test
         run: |
+          npm install -g @microsoft/rush@5.40.5
           rush update
           rush build
           rush run:origin
