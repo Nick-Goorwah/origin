@@ -22,8 +22,8 @@ jobs:
           node-version: '14.x'
 
       - name: Install rush
-      - run: node common/scripts/install-run-rush.js install
-      - run: rush install --no-link
+      - run: | 
+         npm install -g @microsoft/rush@5.40.5
 
       - name: npm install, build, and test
         run: |
