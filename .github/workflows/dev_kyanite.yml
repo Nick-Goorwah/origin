@@ -27,7 +27,7 @@ jobs:
           rush update
           rush build
 
-      -name: Zip all files between the upload job
+      - name: Zip all files between the upload job
          run: |
            zip kyanite.zip ./* -r
 
