@@ -50,7 +50,9 @@ jobs:
           name: node-app
 
       - name: Unzip Kyanite for Deployment
-        run: unzip kyanite.zip
+        run: |
+        export NODE_OPTIONS="--max-old-space-size=8192"
+        unzip kyanite.zip
 
       - name: Delete Zip File
         run: rm kyanite.zip
