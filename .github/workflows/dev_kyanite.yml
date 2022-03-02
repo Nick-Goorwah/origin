@@ -28,8 +28,7 @@ jobs:
           rush build
 
       - name: Zip all files between the upload job
-         run: |
-           zip kyanite.zip ./* -r
+          run: zip kyanite.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -51,12 +50,10 @@ jobs:
           name: node-app
 
       - name: Unzip artifact for deployment
-           run: |
-             unzip kyanite.zip
+          run: unzip kyanite.zip
 
       - name: Delete zip file
-          run: |
-            rm kyanite.zip
+          run: rm kyanite.zip
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
