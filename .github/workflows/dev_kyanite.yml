@@ -24,7 +24,6 @@ jobs:
         run: |
           export RUSH_PNPM_STORE_PATH=/home/azureuser/actions-runner/_work/origin/origin/common/temp/pnpm-store
           npm install -g @microsoft/rush
-          npm install -g
           rush update
           rush build
 
