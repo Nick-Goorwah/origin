@@ -27,15 +27,16 @@ jobs:
           npm install -g @microsoft/rush@5.40.5
           rush update
           rush build
-          
+
       -name: Zip all files between the upload job
-        - run: zip origin.zip ./*
+         run: |
+           zip kyanite.zip ./*
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: origin.zip
+          path: kyanite.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -50,6 +51,14 @@ jobs:
         with:
           name: node-app
 
+      - name: unzip artifact for deployment
+           run: |
+             unzip kyanite.zip
+
+      - name: Delete zip file
+          run: |
+            rm kyanite.zip
+
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -58,3 +67,5 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_224048A4C95D45789F48BBF632AFE36C }}
           package: .
+
+
