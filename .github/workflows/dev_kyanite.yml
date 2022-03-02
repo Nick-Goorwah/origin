@@ -22,14 +22,15 @@ jobs:
 
       - name: npm install rush, rush update and rush build
         run: |
-          sudo export RUSH_PNPM_STORE_PATH=/home/azureuser/actions-runner/_work/origin/origin/common/temp/pnpm-store
-          sudo npm install -g @microsoft/rush
-          sudo rush update
-          sudo rush build
+          export RUSH_PNPM_STORE_PATH=/home/azureuser/actions-runner/_work/origin/origin/common/temp/pnpm-store
+          npm install -g @microsoft/rush
+          npm install -g
+          rush update
+          rush build
 
       - name: Zip file Kyanite
         run: |
-          sudo zip kyanite.zip ./* -r
+          zip kyanite.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -51,10 +52,10 @@ jobs:
           name: node-app
 
       - name: Unzip Kyanite for Deployment
-        run: sudo unzip kyanite.zip
+        run: unzip kyanite.zip
 
       - name: Delete Zip File
-        run: sudo rm kyanite.zip
+        run: rm kyanite.zip
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
