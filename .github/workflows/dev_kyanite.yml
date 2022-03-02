@@ -27,12 +27,15 @@ jobs:
           npm install -g @microsoft/rush@5.40.5
           rush update
           rush build
+          
+      -name: Zip all files between the upload job
+        - run: zip origin.zip ./*
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: .
+          path: origin.zip
 
   deploy:
     runs-on: ubuntu-latest
