@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: kyanite
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
 
@@ -39,7 +39,7 @@ jobs:
           path: kyanite.zip
 
   deploy:
-    runs-on: kyanite
+    runs-on: self-hosted
     needs: build
     environment:
       name: 'Production'
