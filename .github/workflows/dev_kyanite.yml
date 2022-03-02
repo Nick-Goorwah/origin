@@ -26,7 +26,6 @@ jobs:
           npm install -g @microsoft/rush@5.40.5
           rush update
           rush build
-          
 
       - name: Zip all files between the upload job
           run: zip kyanite.zip ./*
@@ -64,5 +63,3 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_224048A4C95D45789F48BBF632AFE36C }}
           package: .
-
-
