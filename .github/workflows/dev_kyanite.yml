@@ -23,13 +23,14 @@ jobs:
 
       - name: npm install rush, rush update and rush build
         run: |
-          export NODE_OPTIONS=--max-old-space-size=8192
           npm install -g @microsoft/rush@5.40.5
           rush update
           rush build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
+        run: |
+          export NODE_OPTIONS=--max-old-space-size=8192
         with:
           name: node-app
           path: .
