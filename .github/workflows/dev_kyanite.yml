@@ -30,6 +30,7 @@ jobs:
           sudo apt install bash
           sudo apt install git
           npm install -g @microsoft/rush@5.40.5
+          npm install -g ganache-cli
           rush update
           rush build
 
