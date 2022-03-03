@@ -35,7 +35,7 @@ jobs:
           npm install -g @microsoft/rush@5.40.5
           npm install -g ganache-cli
           rush install
-          rush deploy --project @energyweb/origin-device-registry-api --create-archive ./archive/origin-device-registry-api.zip
+          rush deploy --project @energyweb/origin-ui --create-archive ./archive/ui.zip
           rush deploy --project @energyweb/origin-backend-irec-app --create-archive ./archive/backend.zip
           rush deploy --project @energyweb/migrations-irec --create-archive ./archive/migrations-irec.zip
 
