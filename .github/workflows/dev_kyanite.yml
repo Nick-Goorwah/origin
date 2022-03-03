@@ -24,7 +24,6 @@ jobs:
         run: |
           sudo apt update
           sudo apt install python3
-          ln -sf python3 /usr/bin/python
           sudo apt install make
           sudo apt install g++
           sudo apt install bash
