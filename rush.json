@@ -381,6 +381,10 @@
      */
     "projects": [
         {
+            "packageName": "ui-packages",
+            "projectFolder": "packages/ui"
+        },
+        {
             "packageName": "@energyweb/origin-backend-irec-app",
             "projectFolder": "packages/apps/origin-backend-irec-app"
         },
@@ -527,11 +531,8 @@
         {
             "packageName": "@energyweb/issuer-irec-api-react-query-client",
             "projectFolder": "packages/api-clients/react-query/issuer-irec-api"
-        },
-        {
-            "packageName": "ui-packages",
-            "projectFolder": "packages/ui"
         }
+
         // {
         //   /**
         //    * The NPM package name of the project (must match package.json)

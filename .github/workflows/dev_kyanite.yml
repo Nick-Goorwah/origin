@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v1
         with:
-          node-version: '14.18.x'
+          node-version: '14.18.2'
 
       - name: Installing Dependencies | APT | NPM | RUSH
         run: |
@@ -32,10 +32,10 @@ jobs:
           npm install -g lerna
           npm install -g node-gyp
           npm install -g node-gyp-build
-          npm install -g @microsoft/rush@5.40.5
+          npm install -g @microsoft/rush
           npm install -g ganache-cli
           rush install
-          rush deploy --project @energyweb/origin-ui --create-archive ./archive/ui.zip
+          rush deploy --project ui-packages --create-archive ./archive/ui.zip
           rush deploy --project @energyweb/origin-backend-irec-app --create-archive ./archive/backend.zip
           rush deploy --project @energyweb/migrations-irec --create-archive ./archive/migrations-irec.zip
 
