@@ -22,7 +22,11 @@ jobs:
 
       - name: npm install rush, rush update and rush build
         run: |
-          apt install python3 && ln -sf python3 /usr/bin/python && apt install make && apt install g++ && apt install bash
+          apt install python3
+          ln -sf python3 /usr/bin/python
+          apt install make
+          apt install g++
+          apt install bash
           apt update git
           apt install git
           npm install -g @microsoft/rush@5.40.5
