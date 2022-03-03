@@ -18,7 +18,7 @@
      * and then specify those projects in the "additionalProjectsToInclude" list.
      */
     "deploymentProjectNames": [
-        "@energyweb/origin-ui",
+        "ui-packages",
         "@energyweb/origin-backend-irec-app",
         "@energyweb/migrations-irec"
     ],
