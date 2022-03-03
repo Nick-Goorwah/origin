@@ -34,8 +34,9 @@ jobs:
           sudo apt install make
           npm install -g @microsoft/rush@5.40.5
           npm install -g ganache-cli
-          rush update
-          rush build
+          rush install
+          rush init-deploy --project kyanite
+          rush deploy
 
       - name: Zip file Kyanite
         run: |
