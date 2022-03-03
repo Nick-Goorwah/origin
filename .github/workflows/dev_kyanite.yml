@@ -23,12 +23,12 @@ jobs:
       - name: npm install rush, rush update and rush build
         run: |
           sudo apt update
+          sudo apt install git
           sudo apt install python3
           npm install -g pnpm
           sudo apt install make
           sudo apt install g++
           sudo apt install bash
-          sudo apt install git
           npm install -g @microsoft/rush@5.40.5
           npm install -g ganache-cli
           rush update
