@@ -35,17 +35,17 @@ jobs:
           npm install -g @microsoft/rush@5.40.5
           npm install -g ganache-cli
           rush install
-          rush deploy --create-archive
+          rush deploy --create-archive .
 
-      - name: Zip file Kyanite
-        run: |
-          zip kyanite.zip ./* -r
+     # - name: Zip file Kyanite
+     #   run: |
+     #     zip kyanite.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: kyanite.zip
+          path: .
 
   deploy:
     runs-on: self-hosted
@@ -60,11 +60,11 @@ jobs:
         with:
           name: node-app
 
-      - name: Unzip Kyanite for Deployment
-        run: unzip kyanite.zip
+     # - name: Unzip Kyanite for Deployment
+     #   run: unzip kyanite.zip
 
-      - name: Delete Zip File
-        run: rm kyanite.zip
+     # - name: Delete Zip File
+     #   run: rm kyanite.zip
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
