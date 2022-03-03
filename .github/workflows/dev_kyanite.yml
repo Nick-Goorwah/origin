@@ -26,6 +26,8 @@ jobs:
           sudo apt install git
           sudo apt install python3
           npm install -g pnpm
+          npm install -g lerna
+          npm install -g node-gyp-build
           sudo apt install make
           sudo apt install g++
           sudo apt install bash
