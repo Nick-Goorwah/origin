@@ -24,6 +24,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install python3
+          npm install -g pnpm
           sudo apt install make
           sudo apt install g++
           sudo apt install bash
