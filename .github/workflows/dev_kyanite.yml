@@ -35,7 +35,9 @@ jobs:
           npm install -g @microsoft/rush@5.40.5
           npm install -g ganache-cli
           rush install
-          rush deploy --create-archive .
+          rush deploy --project @energyweb/origin-ui --create-archive .
+          rush deploy --project @energyweb/origin-backend-irec-app --create-archive .
+          rush deploy --project @energyweb/migrations-irec --create-archive .
 
      # - name: Zip file Kyanite
      #   run: |
