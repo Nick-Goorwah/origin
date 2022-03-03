@@ -26,17 +26,16 @@ jobs:
           sudo apt install git
           sudo apt install g++
           sudo apt install bash
+          sudo apt install make
           sudo apt install python3
           npm install -g pnpm
           npm install -g lerna
           npm install -g node-gyp
           npm install -g node-gyp-build
-          sudo apt install make
           npm install -g @microsoft/rush@5.40.5
           npm install -g ganache-cli
           rush install
-          rush init-deploy --project kyanite
-          rush deploy
+          rush deploy --create-archive
 
       - name: Zip file Kyanite
         run: |
