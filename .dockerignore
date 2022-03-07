@@ -1,1 +1,9 @@
 **/node_modules
+common/temp/node_modules
+common/temp
+
+AwsReplicationWindowsInstaller.exe
+AwsReplicationInstaller.exe
+wget
+.idea/*
+.influxdb-local/*
