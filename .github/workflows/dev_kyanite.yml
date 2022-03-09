@@ -39,9 +39,6 @@ jobs:
           rush install
           rush update
           rush build
-          rush deploy --project ui-packages --overwrite
-          rush deploy --project @energyweb/origin-backend-irec-app --overwrite
-          rush deploy --project @energyweb/migrations-irec --overwrite
 
      # - name: Zip file Kyanite
      #   run: |

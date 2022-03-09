@@ -14,6 +14,4 @@ RUN DB_DATABASE=origin
 
 RUN rush update && rush run:origin
 
-
-
 EXPOSE 3000
