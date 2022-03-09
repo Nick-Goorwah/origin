@@ -104,5 +104,22 @@
     },
     "devDependencies": {
         "webpack-cli": "^4.9.2"
-    }
+    },
+    "description": "<h1 align=\"center\">   <br>   <a href=\"https://www.energyweb.org/\"><img src=\"https://www.energyweb.org/wp-content/uploads/2019/04/logo-brand.png\" alt=\"EnergyWeb\" width=\"150\"></a>   <br>   EnergyWeb Origin   <br>   <br> </h1>",
+    "version": "1.0.0",
+    "main": ".eslintrc.js",
+    "directories": {
+        "doc": "docs",
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Nick-Goorwah/origin.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Nick-Goorwah/origin/issues"
+    },
+    "homepage": "https://github.com/Nick-Goorwah/origin#readme"
 }
