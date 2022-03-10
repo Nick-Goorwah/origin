@@ -19,10 +19,10 @@ export const getDBConnectionOptions = (): ConnectionOptions | ClientConfig => {
 
     return {
         type: 'postgres',
-        host: process.env.DB_HOST ?? 'localhost',
+        host: process.env.DB_HOST ?? 'kyanite-server.postgres.database.azure.com',
         port: Number(process.env.DB_PORT) ?? 5432,
-        username: process.env.DB_USERNAME ?? 'postgres',
-        password: process.env.DB_PASSWORD ?? 'postgres',
+        username: process.env.DB_USERNAME ?? 'lvcddedcrc',
+        password: process.env.DB_PASSWORD ?? '3N8U0QL1L35L43JR$',
         database: process.env.DB_DATABASE ?? 'origin'
     } as ConnectionOptions | ClientConfig;
 };
