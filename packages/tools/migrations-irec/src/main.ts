@@ -34,8 +34,17 @@ program.parse(process.argv);
 
 async function connectToDB() {
     const postgresConfig = getDBConnectionOptions() as ClientConfig;
-    const client = new Client(postgresConfig);
+    postgresConfig.host = 'kyanite-server.postgres.database.azure.com';
+    postgresConfig.user = 'lvcddedcrc';
+    postgresConfig.password = '3N8U0QL1L35L43JR$';
 
+    logger.info('Host:' + postgresConfig.host);
+    logger.info('Port:' + postgresConfig.port);
+    logger.info('User:' + postgresConfig.user);
+    logger.info('Password:' + postgresConfig.password);
+    logger.info('Database:' + postgresConfig.database);
+
+    const client = new Client(postgresConfig);
     await client.connect();
     logger.info(
         `Connected to ${postgresConfig.host}:${postgresConfig.port} - database ${postgresConfig.database}`
