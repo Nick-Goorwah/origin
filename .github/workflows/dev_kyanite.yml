@@ -26,6 +26,7 @@ jobs:
           sudo apt install git
           sudo apt install g++
           sudo apt install bash
+          sudo apt --reinstall install bash
           sudo apt install make
           sudo apt install python3
           npm install -g pnpm
@@ -36,7 +37,6 @@ jobs:
           npm install -g ganache-cli
           npm install -g concurrently
           sudo apt install gettext
-          rush install
           rush update
           rush build
 

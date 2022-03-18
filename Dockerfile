@@ -1,17 +1,40 @@
-FROM node:14.18.2-alpine
-
-RUN apk update && apk add g++ && apk add --no-cache bash && apk add git && npm install -g pnpm && apk add --no-cache python3 && ln -sf python3 /usr/bin/python && apk add make  && npm install -g ganache-cli && npm install -g lerna && npm install -g node-gyp && npm install -g node-gyp-build && npm install -g concurrently && apk add gettext
-
-RUN npm install -g @microsoft/rush
+FROM ubuntu:18.04
+ENV NODE_VERSION 14.18.2
 
 COPY . .
+RUN apt clean \
+&& apt-get update \
+&& apt install -y python3-pip \
+&& pip3 install cliapp \
+&& apt-get -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false update \
+&& apt-get install curl -y \
+&& curl -sL https://deb.nodesource.com/setup_14.x | bash - \
+&& apt-get install -y nodejs \
+&& apt-get install gettext -y \
+&& /bin/sh -c "apt-get install bash" \
+&& apt-get install build-essential -y \
+&& apt-get install git -y \
+&& wget -qO- https://get.pnpm.io/install.sh | sh - \
+&& apt-get install python3 -y \
+&& ln -sf python3 /usr/bin/python \
+&& apt-get install make \
+&& apt-get remove cmdtest \
+&& curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+&& echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+&& apt update \
+&& apt install yarn nodejs -y \
+&& npm install -y node-gyp && npm install -y node-gyp-build \
+&& yarn global add node-gyp \
+&& npm install -g n \
+&& n 14.18.2 --save \
+&& npm install -g concurrently \
+&& npm install lerna --global \
+&& npm install -g truffle \
+&& npm install solc \
+&& npm install -g @microsoft/rush
 
-RUN DB_USERNAME=lvcddedcrc
-RUN DB_PASSWORD=3N8U0QL1L35L43JR$
-RUN DB_HOST=kyanite-server.postgres.database.azure.com
-RUN DB_PORT=5432
-RUN DB_DATABASE=origin
-
-RUN rush update && rush run:origin
+RUN rush update
 
 EXPOSE 3000
+
+CMD ["rush", "run:origin"]

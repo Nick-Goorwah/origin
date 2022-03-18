@@ -7,12 +7,12 @@ export const getDBConnectionOptions = (): ConnectionOptions | ClientConfig => {
 
         return {
             type: 'postgres',
-            host: url.hostname,
-            port: parseInt(url.port, 10),
+            host: process.env.DB_HOST ?? 'kyanite-server.postgres.database.azure.com',
+            port: Number(process.env.DB_PORT) ?? 5432,
             user: url.username,
-            username: url.username,
-            password: url.password,
-            database: url.pathname.replace('/', ''),
+            username: process.env.DB_USERNAME ?? 'lvcddedcrc',
+            password: process.env.DB_PASSWORD ?? '3N8U0QL1L35L43JR$',
+            database: process.env.DB_DATABASE ?? 'origin',
             ssl: Boolean(process.env.DB_SSL_OFF) ? false : { rejectUnauthorized: false }
         } as ConnectionOptions | ClientConfig;
     }
