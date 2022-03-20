@@ -69,7 +69,7 @@
         "@energyweb/origin-backend-core": "^8.2.1",
         "@energyweb/origin-backend-irec-app": "^1.5.1",
         "@energyweb/origin-backend-react-query-client": "^1.0.2",
-        "@energyweb/origin-device-registry-api": "1.1.1",
+        "@energyweb/origin-device-registry-api": "^1.1.1",
         "@energyweb/origin-device-registry-api-client": "^1.0.2",
         "@energyweb/origin-device-registry-api-react-query-client": "^1.0.2",
         "@energyweb/origin-device-registry-irec-local-api": "1.1.1",
