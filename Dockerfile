@@ -33,20 +33,10 @@ RUN apt clean \
 && npm install lerna --global \
 && npm install -g truffle \
 && npm install solc \
-&& curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \
-&& chmod +x /usr/local/bin/docker-compose \
-&& ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose \
-&& npm i -g @nestjs/cli \
-&& npm update -g @nestjs/cli \
-&& npm i -g @nestjs/core \
-&& npm i -g @nestjs/swagger \
-&& nest update \
 && apt-get install -y node-typescript \
 && npm install -g @microsoft/rush \
-&& npm i -g wait-on \
-&& yarn upgrade --latest \
-&& export PATH=/usr/local/lib/node_modules/.bin:$PATH
+&& npm i -g wait-on
 
-EXPOSE 3030
+RUN rush update
 
 CMD ["rush", "run:origin"]
