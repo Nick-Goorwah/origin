@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "nx": "nx",
-    "start": "./dev-env.sh && nx serve --port=3000",
+    "start": "./dev-env.sh && nx serve --port=3000 --host=0.0.0.0 --publicHost=https://kyanite-test-kyanite-ui.azurewebsites.net",
     "config-env": "bash env.sh",
     "build:ui-utils": "nx run ui-utils:build --buildableProjectDepsInPackageJsonType=dependencies",
     "build:ui-theme": "nx run ui-theme:build --buildableProjectDepsInPackageJsonType=dependencies",

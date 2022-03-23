@@ -39,4 +39,4 @@ RUN apt clean \
 
 RUN rush update
 
-CMD ["rush", "run:origin"]
+CMD ["yarn", "run:ui"]
