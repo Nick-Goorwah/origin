@@ -1,8 +1,8 @@
 import { LightenColor } from '../utils/colors';
 
-const $primaryColor_darkTheme = '#894ec5';
+const $primaryColor_darkTheme = '#7c0812';
 const $primaryColorDark_darkTheme = LightenColor($primaryColor_darkTheme, -10);
-const $primaryColorDim = '#362c45';
+const $primaryColorDim = '#51050b';
 
 const $textColorDefault_darkTheme = '#a8a8a8';
 const $simpleTextColor_darkTheme = '#ffffff';
@@ -11,22 +11,22 @@ const $bodyBackgroundColor_darkTheme = '#2d2d2d';
 const $mainBackgroundColor_darkTheme = '#272727';
 const $fieldIconColor_darkTheme = LightenColor('#ffffff', -30);
 
-const $primaryColor_lightTheme = '#00D08A';
+const $primaryColor_lightTheme = '#060173';
 const $primaryColorDark_lightTheme = LightenColor(
   $primaryColor_lightTheme,
   -10
 );
-const $textColorDefault_lightTheme = '#2D1155';
+const $textColorDefault_lightTheme = '#626061';
 const $simpleTextColor_lightTheme = '#000000';
 const $inputAutofillColor_lightTheme = '#cecece';
-const $bodyBackgroundColor_lightTheme = '#F6F3F9';
+const $bodyBackgroundColor_lightTheme = '#626061';
 const $mainBackgroundColor_lightTheme = '#ffffff';
 const $fieldIconColor_lightTheme = LightenColor('#000000', 30);
 
 const $fontFamilyPrimary = 'Rajdhani';
 const $fontFamilySecondary = 'Rajdhani';
 
-const $fontSize = 12;
+const $fontSize = 14;
 
 export type OriginUiThemeVariables = {
   primaryColor: string;

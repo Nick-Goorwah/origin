@@ -17,10 +17,10 @@ export const MarineSelected = withPrimaryColor(MarineRegular);
 export const SolidSelected = withPrimaryColor(SolidRegular);
 export const ThermalSelected = withPrimaryColor(ThermalRegular);
 
-export { ReactComponent as EnergyWebLogo } from './images/EW-Origin-WhiteText.svg';
+export { ReactComponent as EnergyWebLogo } from './images/VEM-Kyanite-BlackText.svg';
 export { ReactComponent as OrganizationAdded } from './images/icon-org-added.svg';
 export { ReactComponent as CoordinatesLogo } from './images/coordinates-logo.svg';
-export { default as EnergyWebBackground } from './images/bg-origin.png';
+export { default as EnergyWebBackground } from './images/bg-kyanite.png';
 export { ReactComponent as IRecLogo } from './images/IREC-logo.svg';
 export { ReactComponent as IRecLogoDark } from './images/IREC-logo_dark.svg';
 

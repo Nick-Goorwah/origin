@@ -1,3 +1,7 @@
+#Locks
+package-lock*
+yarn*lock
+
 # Logs
 *.log
 npm-debug.log*

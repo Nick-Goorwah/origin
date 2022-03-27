@@ -98,8 +98,11 @@
         "nestjs": "0.0.1",
         "node-pre-gyp": "0.6.0",
         "parity": "^0.2.7",
+        "pg": "^8.7.3",
         "pnpm": "^5.1.8",
         "rxjs": "^7.5.4",
+        "source-map-support": "^0.5.21",
+        "tsconfig-paths": "^3.14.1",
         "yarn": "^1.22.17"
     },
     "devDependencies": {
