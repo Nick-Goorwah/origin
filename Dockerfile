@@ -35,7 +35,8 @@ RUN apt clean \
 && npm install solc \
 && apt-get install -y node-typescript \
 && npm install -g @microsoft/rush \
-&& npm i -g wait-on
+&& npm i -g wait-on \
+&& npm install -g @nestjs/cli
 
 RUN rush update
 
