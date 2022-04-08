@@ -33,4 +33,4 @@ export { ReactComponent as MarineRegular } from './images/device-type-regular/ic
 export { ReactComponent as SolidRegular } from './images/device-type-regular/icon-solid-regular.svg';
 export { ReactComponent as ThermalRegular } from './images/device-type-regular/icon-thermal-regular.svg';
 
-export { ReactComponent as ThailandFlag } from './images/flags/thailand_flag.svg';
+export { ReactComponent as ThailandFlag } from './images/flags/canada_flag.svg';
