@@ -3,7 +3,7 @@ ENV NODE_VERSION 14.18.2
 
 COPY . .
 RUN apt clean \
-&& apt-get update \
+&& apt-get -y update \
 && apt install -y python3-pip \
 && pip3 install cliapp \
 && apt-get -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false update \
@@ -40,4 +40,4 @@ RUN apt clean \
 
 RUN rush update
 
-CMD ["yarn", "run:ui"]
+CMD ["yarn", "run:backend"]
