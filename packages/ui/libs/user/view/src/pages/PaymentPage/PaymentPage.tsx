@@ -51,6 +51,7 @@ export const PaymentPage: FC<PaymentPageProps> = ({ formIcon }) => {
   // @ts-ignore
   return (
     <div className="PaymentPage">
+      <b>Hello World</b>
       <GenericForm {...formProps}>
         <Box>
           <CheckoutForm children={formIcon} />

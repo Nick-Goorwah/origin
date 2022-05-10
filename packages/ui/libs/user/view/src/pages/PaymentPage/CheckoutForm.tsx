@@ -18,7 +18,7 @@ export const CheckoutForm: FC<CheckoutFormProps> = ({
   let stripePromise: Promise<Stripe | null>;
   const getStripe = async () => {
     if (!stripePromise) {
-      stripePromise = await loadStripe(process.env.BEARER_TOKEN_TEST);
+      let stripePromise = await loadStripe(process.env.BEARER_TOKEN_TEST);
     }
     return stripePromise;
   };
@@ -26,9 +26,7 @@ export const CheckoutForm: FC<CheckoutFormProps> = ({
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     // Create a Checkout Session.
-    const checkoutSession: Stripe.Checkout.Session = await fetch(
-      '/api/checkout_sessions'
-    );
+    const checkoutSession = await fetch('/api/checkout_sessions');
 
     if ((checkoutSession as any).statusCode === 500) {
       console.error((checkoutSession as any).message);
@@ -37,17 +35,18 @@ export const CheckoutForm: FC<CheckoutFormProps> = ({
 
     // Redirect to Checkout.
     const stripe = await getStripe();
-    const { error } = await stripe!.redirectToCheckout({
-      // Make the id field from the Checkout Session creation API response
-      // available to this file, so you can provide it as parameter here
-      // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
-      sessionId: checkoutSession.id,
-    });
+    const { error } = await stripe!.redirectToCheckout(
+      (checkoutSession as any).errorMessage
+    );
+    // Make the id field from the Checkout Session creation API response
+    // available to this file, so you can provide it as parameter here
+    // instead of the {{CHECKOUT_SESSION_ID}} placeholder.;
+
     // If `redirectToCheckout` fails due to a browser or network
     // error, display the localized error message to your customer
     // using `error.message`.
-    console.warn(error.message);
+    console.warn(error);
   };
   let children;
-  return <> {<b> checkoutSession </b>} </>;
+  return <> {<b> Hello World </b>} </>;
 };
