@@ -184,6 +184,14 @@ export const App: FC<AppProps> = memo(
                 }
               />
 
+              <Route
+                path="payment/*"
+                element={
+                  <Suspense fallback={<CircularProgress />}>
+                    <PaymentApp routesConfig={loginRoutes} />
+                  </Suspense>
+                }
+              />
               <Route path="/" element={<Navigate to="device/all" />} />
               <Route path="*" element={<PageNotFound />} />
             </Route>
