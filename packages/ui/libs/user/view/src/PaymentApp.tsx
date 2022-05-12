@@ -3,26 +3,21 @@ import React, { FC } from 'react';
 import { Route, Routes } from 'react-router';
 import { UserAppEnvProvider, UserEnvVariables } from './context';
 import { PaymentPage } from './pages';
+import { TMenuSection } from '@energyweb/origin-ui-core';
+
+export type PaymentRoutesConfig = {
+  menuSections: TMenuSection;
+};
 
 export interface PaymentAppProps {
-  routesConfig: {
-    showUserProfile: boolean;
-    showSettings: boolean;
-  };
-  envVariables: UserEnvVariables;
+  menuSections: TMenuSection;
 }
 
-export const PaymentApp: FC<PaymentAppProps> = ({
-  routesConfig,
-  envVariables,
-}) => {
-  const { showSettings } = routesConfig;
+export const PaymentApp: FC<PaymentAppProps> = ({ menuSections }) => {
   return (
-    <UserAppEnvProvider variables={envVariables}>
-      <Routes>
-        {showSettings && <Route path="payment" element={<PaymentPage />} />}
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </UserAppEnvProvider>
+    <Routes>
+      <Route path="payment" element={<PaymentPage />} />
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
   );
 };
