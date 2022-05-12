@@ -369,7 +369,12 @@ export const useAppContainerEffects = () => {
     [deviceMenu, certificateMenu, exchangeMenu, orgMenu, accountMenu, adminMenu]
   );
 
-  const paymentRoutesConfig: RoutesConfig['paymentRoutes'];
+  const paymentRoutesConfig: RoutesConfig['paymentRoutes'] = useMemo(
+    () => ({
+      showLoginPage: !isAuthenticated,
+    }),
+    [isAuthenticated]
+  );
 
   const routesConfig: RoutesConfig = useMemo(
     () => ({

@@ -6,14 +6,14 @@ import { PaymentPage } from './pages';
 import { TMenuSection } from '@energyweb/origin-ui-core';
 
 export type PaymentRoutesConfig = {
-  menuSections: TMenuSection;
+  showLoginPage: boolean;
 };
 
 export interface PaymentAppProps {
-  menuSections: TMenuSection;
+  routesConfig: PaymentRoutesConfig;
 }
 
-export const PaymentApp: FC<PaymentAppProps> = ({ menuSections }) => {
+export const PaymentApp: FC<PaymentAppProps> = ({}) => {
   return (
     <Routes>
       <Route path="payment" element={<PaymentPage />} />
