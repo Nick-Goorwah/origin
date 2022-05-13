@@ -1,6 +1,7 @@
 #Locks
 package-lock*
 yarn*lock
+/package-lock.*
 
 # Logs
 *.log
