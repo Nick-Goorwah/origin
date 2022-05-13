@@ -6,3 +6,5 @@ export * from './ConfirmEmailApp';
 export * from './pages';
 export * from './context';
 export * from './containers/modals';
+
+export class PaymentRoutesConfig {}

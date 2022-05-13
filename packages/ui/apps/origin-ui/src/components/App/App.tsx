@@ -28,6 +28,8 @@ const AdminApp = lazy(() => import('../../routes/Admin'));
 const AuthApp = lazy(() => import('../../routes/Auth'));
 const LoginApp = lazy(() => import('../../routes/Login'));
 const ConfirmEmailApp = lazy(() => import('../../routes/ConfirmEmail'));
+// @ts-ignore
+const PaymentApp = lazy(() => import('../../routes/Payment'));
 
 export interface AppProps {
   isAuthenticated: boolean;
@@ -59,6 +61,7 @@ export const App: FC<AppProps> = memo(
       deviceRoutes,
       exchangeRoutes,
       loginRoutes,
+      paymentRoutes,
     } = routesConfig;
     const themeMode = useThemeModeStore();
     const isLightTheme = themeMode === ThemeModeEnum.Light;
@@ -142,6 +145,15 @@ export const App: FC<AppProps> = memo(
                   </Suspense>
                 }
               />
+              <Route
+                path="payment/*"
+                element={
+                  <Suspense fallback={<CircularProgress />}>
+                    <PaymentApp routesConfig={loginRoutes} />
+                  </Suspense>
+                }
+              />
+              <Route path="payment/*" element={<Navigate to="payment" />} />
               <Route
                 path="organization/*"
                 element={

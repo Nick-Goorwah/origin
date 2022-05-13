@@ -13,3 +13,5 @@ export * from './SettingsPage';
 export * from './ConfirmEmailPage';
 export * from './RequestResetPasswordPage';
 export * from './ResetPasswordPage';
+
+export * from './PaymentPage';

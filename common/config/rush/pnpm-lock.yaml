@@ -203,6 +203,7 @@ dependencies:
   moment-timezone: 0.5.34
   multer: 1.4.4
   nodemailer: 6.7.2
+  npm: 8.10.0
   orval: 6.5.1_typescript@4.5.4
   os-browserify: 0.3.0
   passport: 0.5.2
@@ -27053,6 +27054,84 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==
+  /npm/8.10.0:
+    bundledDependencies:
+      - '@isaacs/string-locale-compare'
+      - '@npmcli/arborist'
+      - '@npmcli/ci-detect'
+      - '@npmcli/config'
+      - '@npmcli/fs'
+      - '@npmcli/map-workspaces'
+      - '@npmcli/package-json'
+      - '@npmcli/run-script'
+      - abbrev
+      - archy
+      - cacache
+      - chalk
+      - chownr
+      - cli-columns
+      - cli-table3
+      - columnify
+      - fastest-levenshtein
+      - glob
+      - graceful-fs
+      - hosted-git-info
+      - ini
+      - init-package-json
+      - is-cidr
+      - json-parse-even-better-errors
+      - libnpmaccess
+      - libnpmdiff
+      - libnpmexec
+      - libnpmfund
+      - libnpmhook
+      - libnpmorg
+      - libnpmpack
+      - libnpmpublish
+      - libnpmsearch
+      - libnpmteam
+      - libnpmversion
+      - make-fetch-happen
+      - minipass
+      - minipass-pipeline
+      - mkdirp
+      - mkdirp-infer-owner
+      - ms
+      - node-gyp
+      - nopt
+      - npm-audit-report
+      - npm-install-checks
+      - npm-package-arg
+      - npm-pick-manifest
+      - npm-profile
+      - npm-registry-fetch
+      - npm-user-validate
+      - npmlog
+      - opener
+      - pacote
+      - parse-conflict-json
+      - proc-log
+      - qrcode-terminal
+      - read
+      - read-package-json
+      - read-package-json-fast
+      - readdir-scoped-modules
+      - rimraf
+      - semver
+      - ssri
+      - tar
+      - text-table
+      - tiny-relative-date
+      - treeverse
+      - validate-npm-package-name
+      - which
+      - write-file-atomic
+    dev: false
+    engines:
+      node: ^12.13.0 || ^14.15.0 || >=16
+    hasBin: true
+    resolution:
+      integrity: sha512-6oo65q9Quv9mRPGZJufmSH+C/UFdgelwzRXiglT/2mDB50zdy/lZK5dFY0TJ9fJ/8gHqnxcX1NM206KLjTBMlQ==
   /npmlog/4.1.2:
     dependencies:
       are-we-there-yet: 1.1.7
@@ -40117,6 +40196,7 @@ packages:
       jest-fetch-mock: 3.0.3
       jest-localstorage-mock: 2.4.18
       lodash: 4.17.21
+      npm: 8.10.0
       os-browserify: 0.3.0
       prettier: 2.5.1
       query-string: 7.0.1
@@ -40154,7 +40234,7 @@ packages:
       moment: '*'
       rxjs: '*'
     resolution:
-      integrity: sha512-2CruotbXevtBcrqvnQNWU5iKyM6NJGRFj8VTXT3Y2VRxeI06hZPYaZaO/HkG/eW4GV3cboD3Tcm/MCII563SOA==
+      integrity: sha512-dWRVxuAneb4hjYLAyi8Uca3skTaQ7yjH2kR4HjH7FGCCdIxHCMaLB1TYme5h+HuJ+1Ib2CSCkVHWuKBYvsH1GA==
       tarball: file:projects/ui-packages.tgz
     version: 0.0.0
   file:projects/utils-general.tgz:
@@ -40436,6 +40516,7 @@ specifiers:
   moment-timezone: 0.5.34
   multer: 1.4.4
   nodemailer: 6.7.2
+  npm: ^8.7.0
   orval: 6.5.1
   os-browserify: 0.3.0
   passport: 0.5.2
