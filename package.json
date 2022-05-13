@@ -90,6 +90,7 @@
         "@microsoft/rush": "^5.62.4",
         "@nestjs/platform-express": "^8.4.0",
         "@nrwl/workspace": "^14.0.2",
+        "@stripe/stripe-js": "^1.29.0",
         "@types/ws": "^8.5.2",
         "body-parser": "^1.19.2",
         "cli-js": "0.0.8",
@@ -101,7 +102,7 @@
         "parity": "^0.2.7",
         "pg": "^8.7.3",
         "pnpm": "^5.1.8",
-        "react": "^18.0.0",
+        "react": "^18.1.0",
         "react-dom": "^18.0.0",
         "rxjs": "^7.5.4",
         "source-map-support": "^0.5.21",
@@ -109,6 +110,7 @@
         "yarn": "^1.22.18"
     },
     "devDependencies": {
+        "@stripe/react-stripe-js": "^1.8.0-0",
         "@types/react": "^18.0.7",
         "@types/react-dom": "^18.0.0",
         "webpack-cli": "^4.9.2"
