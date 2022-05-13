@@ -26,7 +26,10 @@ import {
   TGetAdminMenuArgs,
   getTopbarButtonList,
 } from '@energyweb/origin-ui-user-logic';
-import { LoginRoutesConfig } from '@energyweb/origin-ui-user-view';
+import {
+  LoginRoutesConfig,
+  PaymentRoutesConfig,
+} from '@energyweb/origin-ui-user-view';
 import {
   useInvitationControllerGetInvitations,
   useConnectionControllerGetMyConnection,
@@ -49,6 +52,7 @@ export type RoutesConfig = {
   accountRoutes: Omit<TGetAccountMenuArgs, 't' | 'isOpen' | 'showSection'>;
   adminRoutes: Omit<TGetAdminMenuArgs, 't' | 'isOpen' | 'showSection'>;
   loginRoutes: LoginRoutesConfig;
+  paymentRoutes: PaymentRoutesConfig;
 };
 
 export const useAppContainerEffects = () => {
@@ -381,6 +385,7 @@ export const useAppContainerEffects = () => {
       accountRoutes: accountRoutesConfig,
       adminRoutes: adminRoutesConfig,
       loginRoutes: loginRoutesConfig,
+      paymentRoutes: paymentRoutesConfig,
     }),
     [
       orgRoutesConfig,
@@ -390,6 +395,7 @@ export const useAppContainerEffects = () => {
       accountRoutesConfig,
       adminRoutesConfig,
       loginRoutesConfig,
+      paymentRoutesConfig,
     ]
   );
 
