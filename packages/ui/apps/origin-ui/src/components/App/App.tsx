@@ -149,11 +149,10 @@ export const App: FC<AppProps> = memo(
                 path="payment/*"
                 element={
                   <Suspense fallback={<CircularProgress />}>
-                    <PaymentApp routesConfig={loginRoutes} />
+                    <LoginApp routesConfig={loginRoutes} />
                   </Suspense>
                 }
               />
-              <Route path="payment/*" element={<Navigate to="payment" />} />
               <Route
                 path="organization/*"
                 element={

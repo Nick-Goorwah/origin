@@ -1,24 +1,22 @@
-import React, { ReactNode, FormEvent, FC } from 'react';
+import React, { ReactNode, FormEvent, FC, useEffect } from 'react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 
-import { Stripe, loadStripe } from '@stripe/stripe-js';
-import { LoginPageLayoutProps } from '../../containers';
-import { PaymentPageProps } from './PaymentPage';
+import {
+  Stripe,
+  loadStripe,
+  StripeElements,
+  stripePromise,
+} from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import { LoginPageLayout } from '../../containers';
+import { Button } from '@mui/material';
 
-export interface CheckoutFormProps {
-  bgImage?: string;
-  children: ReactNode;
-}
-
-export const CheckoutForm: FC<CheckoutFormProps> = ({
-  bgImage: string,
-  children: ReactNode,
-}) => {
-  let stripePromise: Promise<Stripe | null>;
+export const CheckoutForm = () => {
+  let stripePromise: Stripe;
   const getStripe = async () => {
     if (!stripePromise) {
-      let stripePromise = await loadStripe(process.env.BEARER_TOKEN_TEST);
+      stripePromise = await loadStripe(process.env.BEARER_TOKEN_TEST);
     }
     return stripePromise;
   };
@@ -47,6 +45,6 @@ export const CheckoutForm: FC<CheckoutFormProps> = ({
     // using `error.message`.
     console.warn(error);
   };
-  let children;
-  return <> {<b> Hello World </b>} </>;
+
+  return <Button></Button>;
 };
