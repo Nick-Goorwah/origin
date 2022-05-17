@@ -18,6 +18,8 @@ export interface PaymentPageProps {
   formIcon?: ReactNode;
   loginPageBgImage?: string;
   loginFormIcon?: ReactNode;
+  token?: string;
+  stripeKey?: string;
 }
 
 export const PaymentPage: FC<PaymentPageProps> = ({ bgImage, formIcon }) => {
@@ -30,23 +32,13 @@ export const PaymentPage: FC<PaymentPageProps> = ({ bgImage, formIcon }) => {
     return stripePromise;
   };
 
-  const appearance = {
-    theme: 'stripe',
-  };
-
-  const { formProps, navigateToRegister, navigateToResetPassword } =
-    useLogInPageEffects();
-  /*
-  const options = {
-    clientSecret,
-    appearance,
-  };
-  */
   // @ts-ignore
   const classes = useStyles();
   const { t } = useTranslation();
   return (
     <StripeCheckout
+      token={Stripe.token}
+      stripeKey={Stripe.stripeKey}
       name="Three Comma Co." // the pop-in header title
       description="Big Data Stuff" // the pop-in header subtitle
       image="https://stripe.com/img/documentation/checkout/marketplace.png" // the pop-in header image (default none)
@@ -55,7 +47,6 @@ export const PaymentPage: FC<PaymentPageProps> = ({ bgImage, formIcon }) => {
       panelLabel="Give Money" // prepended to the amount in the bottom pay button
       amount={1000000} // cents
       currency="USD"
-      stripeKey="..."
       locale="zh"
       email="info@vidhub.co"
       // Note: Enabling either address option will give the user the ability to
@@ -68,7 +59,6 @@ export const PaymentPage: FC<PaymentPageProps> = ({ bgImage, formIcon }) => {
       alipay // accept Alipay (default false)
       bitcoin // accept Bitcoins (default false)
       allowRememberMe // "Remember Me" option (default true)
-      token={ReactStripeCheckout.propTypes.token} // submit callback
       opened={ReactStripeCheckout.propTypes.opened} // called when the checkout popin is opened (no IE6/7)
       closed={ReactStripeCheckout.propTypes.closed} // called when the checkout popin is closed (no IE6/7)
       // Note: `reconfigureOnUpdate` should be set to true IFF, for some reason
@@ -79,8 +69,7 @@ export const PaymentPage: FC<PaymentPageProps> = ({ bgImage, formIcon }) => {
       triggerEvent="onTouchTap"
     >
       <button className="btn btn-primary">
-        Use your own child component, which gets wrapped in whatever component
-        you pass into as "ComponentClass" (defaults to span)
+        <ReactStripeCheckout />
       </button>
     </StripeCheckout>
   );

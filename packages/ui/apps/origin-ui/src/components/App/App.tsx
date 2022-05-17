@@ -149,7 +149,12 @@ export const App: FC<AppProps> = memo(
                 path="payment/*"
                 element={
                   <Suspense fallback={<CircularProgress />}>
-                    <LoginApp routesConfig={loginRoutes} />
+                    <PaymentApp
+                      routesConfig={{
+                        showLoginPage: !isAuthenticated,
+                        showPaymentPage: true,
+                      }}
+                    />
                   </Suspense>
                 }
               />

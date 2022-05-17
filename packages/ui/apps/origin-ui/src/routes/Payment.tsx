@@ -1,10 +1,10 @@
 import React from 'react';
 import {
   PaymentAppProps,
+  PaymentApp,
   LoginApp,
   LoginAppProps,
 } from '@energyweb/origin-ui-user-view';
-import { PaymentApp } from '../../../../libs/user/view/src/PaymentApp';
 
 const PaymentRoute = (props: PaymentAppProps) => {
   return <PaymentApp {...props} />;

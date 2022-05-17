@@ -19,13 +19,12 @@ export interface PaymentAppProps {
 }
 
 export const PaymentApp: FC<PaymentAppProps> = ({ routesConfig }) => {
-  const { showLoginPage } = routesConfig;
-  const { showPaymentPage } = routesConfig;
+  const { showLoginPage, showPaymentPage } = routesConfig;
   return (
     <Routes>
       {showPaymentPage && <Route path="/payment" element={<PaymentPage />} />}
       {showPaymentPage == false && (
-        <Route path="/payment/error" element={<PageNotFound />} />
+        <Route path="*" element={<PageNotFound />} />
       )}
     </Routes>
   );
