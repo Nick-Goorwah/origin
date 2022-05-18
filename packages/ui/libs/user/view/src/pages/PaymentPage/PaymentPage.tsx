@@ -11,7 +11,6 @@ import { useLogInPageEffects } from '../LoginPage/LoginPage.effects';
 import { EnergyWebLogo } from '@energyweb/origin-ui-assets';
 import { useStyles } from '../LoginPage/LoginPage.styles';
 import { useTranslation } from 'react-i18next';
-import ReactStripeCheckout from './ReactStripeCheckout';
 
 export interface PaymentPageProps {
   bgImage?: string;
@@ -22,7 +21,15 @@ export interface PaymentPageProps {
   stripeKey?: string;
 }
 
-export const PaymentPage: FC<PaymentPageProps> = ({ bgImage, formIcon }) => {
+export const PaymentPage: FC<PaymentPageProps> = ({
+  bgImage,
+  formIcon,
+  loginFormIcon,
+  loginPageBgImage,
+  token,
+  stripeKey,
+  children,
+}) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   let stripePromise: Promise<Stripe | null>;
   const getStripe = () => {
@@ -59,8 +66,8 @@ export const PaymentPage: FC<PaymentPageProps> = ({ bgImage, formIcon }) => {
       alipay // accept Alipay (default false)
       bitcoin // accept Bitcoins (default false)
       allowRememberMe // "Remember Me" option (default true)
-      opened={ReactStripeCheckout.propTypes.opened} // called when the checkout popin is opened (no IE6/7)
-      closed={ReactStripeCheckout.propTypes.closed} // called when the checkout popin is closed (no IE6/7)
+      opened={StripeCheckout.propTypes.opened} // called when the checkout popin is opened (no IE6/7)
+      closed={StripeCheckout.propTypes.closed} // called when the checkout popin is closed (no IE6/7)
       // Note: `reconfigureOnUpdate` should be set to true IFF, for some reason
       // you are using multiple stripe keys
       reconfigureOnUpdate={false}
@@ -68,9 +75,7 @@ export const PaymentPage: FC<PaymentPageProps> = ({ bgImage, formIcon }) => {
       // useful if you're using React-Tap-Event-Plugin
       triggerEvent="onTouchTap"
     >
-      <button className="btn btn-primary">
-        <ReactStripeCheckout />
-      </button>
+      <button className="btn btn-primary">Buy Now We are In the Money</button>
     </StripeCheckout>
   );
 };
