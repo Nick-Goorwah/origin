@@ -311,12 +311,13 @@ export default class ReactStripeCheckout extends React.Component {
   static _isMounted = false;
   private loadPromise: Boolean;
 
-  constructor(props?: any) {
-    super(props);
+  constructor(propTypes?: any) {
+    super(propTypes);
     this.state = {
       open: false,
       buttonActive: false,
     };
+    this.render();
   }
 
   componentDidMount() {

@@ -9,12 +9,20 @@ import ReactStripeCheckout from './pages/PaymentPage/ReactStripeCheckout';
 export type PaymentRoutesConfig = {
   showLoginPage: boolean;
   showPaymentPage: boolean;
+  loginPageBgImage?: string;
+  loginFormIcon?: ReactNode;
+  token?: string;
+  stripeKey?: string;
 };
 
 export interface PaymentAppProps {
   routesConfig: {
     showLoginPage: boolean;
     showPaymentPage: boolean;
+    loginPageBgImage?: string;
+    loginFormIcon?: ReactNode;
+    token?: string;
+    stripeKey?: string;
   };
 }
 
