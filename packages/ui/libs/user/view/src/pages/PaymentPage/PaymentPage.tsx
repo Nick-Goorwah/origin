@@ -34,14 +34,6 @@ export const PaymentPage: FC<PaymentPageProps> = ({
   children,
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  let stripePromise: Promise<Stripe | null>;
-  const getStripe = () => {
-    if (!stripePromise) {
-      stripePromise = loadStripe(process.env.PUBLISHER_BEARER_KEY!);
-    }
-    return stripePromise;
-  };
-
   // @ts-ignore
   const classes = useStyles();
   const { t } = useTranslation();
@@ -90,10 +82,11 @@ export const PaymentPage: FC<PaymentPageProps> = ({
             reconfigureOnUpdate={false}
             // Note: you can change the event to `onTouchTap`, `onClick`, `onTouchStart`
             // useful if you're using React-Tap-Event-Plugin
-          ></StripeCheckout>
-          <button onClick={buttonHandler} className="btn btn-primary">
-            Buy Now We are In the Money
-          </button>
+          >
+            <button onClick={buttonHandler} className="btn btn-primary">
+              Buy Now We are In the Money
+            </button>
+          </StripeCheckout>
         </Box>
       </GenericForm>
     </Paper>

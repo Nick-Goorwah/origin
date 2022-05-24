@@ -1,4 +1,10 @@
-import React, { FC, memo, Suspense, lazy } from 'react';
+import React, { FC, memo, Suspense, lazy, useState, useEffect } from 'react';
+import dotenv from 'dotenv';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
+import CheckoutForm from '../../../../../../ui/libs/user/view/src/pages/PaymentPage/CheckoutForm';
+
 import { Box, CircularProgress } from '@mui/material';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { UserDTO } from '@energyweb/origin-backend-react-query-client';
@@ -30,6 +36,11 @@ const LoginApp = lazy(() => import('../../routes/Login'));
 const ConfirmEmailApp = lazy(() => import('../../routes/ConfirmEmail'));
 // @ts-ignore
 const PaymentApp = lazy(() => import('../../routes/Payment'));
+
+const stripePromise = loadStripe(
+  'pk_test_51KlysiHFwkHgdbLXrvYtAe2NBDfM0VZ09GE1joSpHzSLgoDPOyGCbLuoiw2WtnW0gaqaWE4Dm7FNciQ1E2wPpzbu00qwmo0n59'
+);
+// const stripe = require('../../../../../../../node_modules/stripe')('sk_test_51KlysiHFwkHgdbLXDq6hsMqt7Zw4CCYN38NtkqHYE4tQCLPIhos7DvdRqijqWvL5p76NOHExj95DZI7pbwetngIt00Iat18R8d');
 
 export interface AppProps {
   isAuthenticated: boolean;
@@ -64,11 +75,54 @@ export const App: FC<AppProps> = memo(
       paymentRoutes,
     } = routesConfig;
     const themeMode = useThemeModeStore();
+    const [clientSecret, setClientSecret] = useState('');
+
     const isLightTheme = themeMode === ThemeModeEnum.Light;
     const changeThemeMode = useThemeModeDispatch();
     const allowedChainIds = (window as any).config.SUPPORTED_NETWORK_IDS.split(
       ';'
     ).map((id: string) => Number(id));
+    /*
+    const paymentIntent = stripe.paymentIntents.create({
+      amount: 1099,
+      currency: 'cad',
+      payment_method_types: ['card'],
+    });
+*/
+    useEffect(() => {
+      // Create PaymentIntent as soon as the page loads
+      fetch('https://api.stripe.com/v1/payment_intents', {
+        method: 'POST',
+
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Authorization:
+            'Bearer sk_test_51KlysiHFwkHgdbLXDq6hsMqt7Zw4CCYN38NtkqHYE4tQCLPIhos7DvdRqijqWvL5p76NOHExj95DZI7pbwetngIt00Iat18R8d',
+        },
+        body: JSON.stringify({
+          amount: 1400,
+          amount_received: 0,
+          capture_method: 'automatic',
+          client_secret:
+            'sk_test_51KlysiHFwkHgdbLXDq6hsMqt7Zw4CCYN38NtkqHYE4tQCLPIhos7DvdRqijqWvL5p76NOHExj95DZI7pbwetngIt00Iat18R8d',
+          confirmation_method: 'automatic',
+          created: 1651415856,
+          currency: 'cad',
+          payment_method_types: ['card'],
+          status: 'requires_payment_method',
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => setClientSecret(data.clientSecret));
+    }, []);
+
+    const appearance = {
+      theme: 'stripe',
+    };
+    const options = {
+      clientSecret,
+      appearance,
+    };
     return (
       <>
         {loading ? (
@@ -155,6 +209,11 @@ export const App: FC<AppProps> = memo(
                         showPaymentPage: true,
                       }}
                     />
+                    {clientSecret && (
+                      <Elements options={options} stripe={stripePromise}>
+                        <CheckoutForm />
+                      </Elements>
+                    )}
                   </Suspense>
                 }
               />
