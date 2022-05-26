@@ -100,16 +100,8 @@ export const App: FC<AppProps> = memo(
             'Bearer sk_test_51KlysiHFwkHgdbLXDq6hsMqt7Zw4CCYN38NtkqHYE4tQCLPIhos7DvdRqijqWvL5p76NOHExj95DZI7pbwetngIt00Iat18R8d',
         },
         body: JSON.stringify({
-          amount: 1400,
-          amount_received: 0,
-          capture_method: 'automatic',
-          client_secret:
-            'sk_test_51KlysiHFwkHgdbLXDq6hsMqt7Zw4CCYN38NtkqHYE4tQCLPIhos7DvdRqijqWvL5p76NOHExj95DZI7pbwetngIt00Iat18R8d',
-          confirmation_method: 'automatic',
-          created: 1651415856,
+          amount: '20000',
           currency: 'cad',
-          payment_method_types: ['card'],
-          status: 'requires_payment_method',
         }),
       })
         .then((res) => res.json())
